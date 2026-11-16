@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c4bbk5d71t76d"]
+
+[ext_resource type="Texture2D" uid="uid://jdmkhao0otkw" path="res://assets/images/empty_play_room_2k.hdr" id="1_sul5r"]
+[ext_resource type="Texture2D" uid="uid://bo1b1xljwi070" path="res://assets/textures/wood_table_worn_diff_1k.jpg" id="2_bdhmt"]
+[ext_resource type="Texture2D" uid="uid://f4x82uskh6nl" path="res://assets/textures/wood_table_worn_ao_1k.jpg" id="3_87uf6"]
+[ext_resource type="Texture2D" uid="uid://dhk3s2y4aw6lr" path="res://assets/textures/wood_table_worn_nor_gl_1k.jpg" id="4_2a8rs"]
+[ext_resource type="Texture2D" uid="uid://cage1p4sal3b1" path="res://assets/textures/rubber_tiles_diff_1k.jpg" id="5_4j704"]
+[ext_resource type="Texture2D" uid="uid://b5d28850jpqvi" path="res://assets/textures/rubber_tiles_ao_1k.jpg" id="6_kp23o"]
+[ext_resource type="Texture2D" uid="uid://com2ppv2u0viw" path="res://assets/textures/rubber_tiles_nor_gl_1k.jpg" id="7_5jirj"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ifgtf"]
+panorama = ExtResource("1_sul5r")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_sul5r"]
+sky_material = SubResource("PanoramaSkyMaterial_ifgtf")
+
+[sub_resource type="Environment" id="Environment_7h61r"]
+background_mode = 2
+sky = SubResource("Sky_sul5r")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sul5r"]
+albedo_texture = ExtResource("2_bdhmt")
+normal_enabled = true
+normal_texture = ExtResource("4_2a8rs")
+ao_enabled = true
+ao_texture = ExtResource("3_87uf6")
+
+[sub_resource type="BoxMesh" id="BoxMesh_blt1j"]
+material = SubResource("StandardMaterial3D_sul5r")
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifgtf"]
+albedo_texture = ExtResource("5_4j704")
+normal_enabled = true
+normal_texture = ExtResource("7_5jirj")
+ao_enabled = true
+ao_texture = ExtResource("6_kp23o")
+
+[sub_resource type="BoxMesh" id="BoxMesh_0sr1o"]
+material = SubResource("StandardMaterial3D_ifgtf")
+size = Vector3(2.5, 0.5, 2.5)
+
+[node name="Game" type="Node" unique_id=1481289756]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=374061395]
+environment = SubResource("Environment_7h61r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1561170044]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=907004783]
+transform = Transform3D(0.6946584, -0.3596699, 0.6229665, 0, 0.8660254, 0.5, -0.7193398, -0.3473292, 0.6015918, 4, 7, 4)
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=524654760]
+mesh = SubResource("BoxMesh_blt1j")
+
+[node name="PlayArea" type="MeshInstance3D" parent="." unique_id=987170212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_0sr1o")
