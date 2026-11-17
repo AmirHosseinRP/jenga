@@ -69,20 +69,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 [node name="OmniLight3D" type="OmniLight3D" parent="LightsContainer" unique_id=2022206522]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9975557, 0, 2.9975557)
 light_color = Color(1, 1, 0.8980392, 1)
-light_energy = 9.554
+light_energy = 6.227
 omni_range = 11.393
-omni_attenuation = 0.208
+omni_attenuation = 0.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="LightsContainer" unique_id=1397389945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7319498, 0, -2.580174)
 light_color = Color(1, 1, 0.8980392, 1)
-light_energy = 9.554
+light_energy = 6.227
 omni_range = 11.393
-omni_attenuation = 0.208
+omni_attenuation = 0.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="LightsContainer" unique_id=439868045]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.959612, 0, -2.656062)
 light_color = Color(1, 1, 0.8980392, 1)
-light_energy = 9.554
+light_energy = 6.227
 omni_range = 11.393
-omni_attenuation = 0.208
+omni_attenuation = 0.0
