@@ -49,6 +49,8 @@ environment = SubResource("Environment_7h61r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1561170044]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+light_energy = 0.03
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=907004783]
@@ -60,3 +62,27 @@ mesh = SubResource("BoxMesh_blt1j")
 [node name="PlayArea" type="MeshInstance3D" parent="." unique_id=987170212]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 mesh = SubResource("BoxMesh_0sr1o")
+
+[node name="LightsContainer" type="Node3D" parent="." unique_id=615324220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightsContainer" unique_id=2022206522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9975557, 0, 2.9975557)
+light_color = Color(1, 1, 0.8980392, 1)
+light_energy = 9.554
+omni_range = 11.393
+omni_attenuation = 0.208
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="LightsContainer" unique_id=1397389945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7319498, 0, -2.580174)
+light_color = Color(1, 1, 0.8980392, 1)
+light_energy = 9.554
+omni_range = 11.393
+omni_attenuation = 0.208
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="LightsContainer" unique_id=439868045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.959612, 0, -2.656062)
+light_color = Color(1, 1, 0.8980392, 1)
+light_energy = 9.554
+omni_range = 11.393
+omni_attenuation = 0.208
