@@ -28,6 +28,10 @@ window/stretch/aspect="keep_width"
 
 enabled=PackedStringArray("res://addons/pretty-gd/plugin.cfg")
 
+[global_group]
+
+Table=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

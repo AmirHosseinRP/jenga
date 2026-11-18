@@ -1,0 +1,2 @@
+class_name PlayArea
+extends StaticBody3D

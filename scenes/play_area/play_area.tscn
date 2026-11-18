@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dtun6p0njaokl"]
+
+[ext_resource type="Texture2D" uid="uid://cage1p4sal3b1" path="res://assets/textures/rubber_tiles_diff_1k.jpg" id="1_1j2nb"]
+[ext_resource type="Texture2D" uid="uid://b5d28850jpqvi" path="res://assets/textures/rubber_tiles_ao_1k.jpg" id="2_2eqxk"]
+[ext_resource type="Texture2D" uid="uid://com2ppv2u0viw" path="res://assets/textures/rubber_tiles_nor_gl_1k.jpg" id="3_824f3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifgtf"]
+albedo_texture = ExtResource("1_1j2nb")
+normal_enabled = true
+normal_texture = ExtResource("3_824f3")
+ao_enabled = true
+ao_texture = ExtResource("2_2eqxk")
+
+[sub_resource type="BoxMesh" id="BoxMesh_0sr1o"]
+material = SubResource("StandardMaterial3D_ifgtf")
+size = Vector3(2.5, 0.5, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1u8ps"]
+size = Vector3(2.5, 0.1, 2.5)
+
+[node name="PlayArea" type="StaticBody3D" unique_id=302354817]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=742996131]
+mesh = SubResource("BoxMesh_0sr1o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=834533216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_1u8ps")

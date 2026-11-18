@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cinh54s7h1b50"]
+
+[ext_resource type="Texture2D" uid="uid://bo1b1xljwi070" path="res://assets/textures/wood_table_worn_diff_1k.jpg" id="1_qxbf1"]
+[ext_resource type="Texture2D" uid="uid://f4x82uskh6nl" path="res://assets/textures/wood_table_worn_ao_1k.jpg" id="2_wpgb8"]
+[ext_resource type="Texture2D" uid="uid://dhk3s2y4aw6lr" path="res://assets/textures/wood_table_worn_nor_gl_1k.jpg" id="3_0y6hh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sul5r"]
+albedo_texture = ExtResource("1_qxbf1")
+normal_enabled = true
+normal_texture = ExtResource("3_0y6hh")
+ao_enabled = true
+ao_texture = ExtResource("2_wpgb8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_blt1j"]
+material = SubResource("StandardMaterial3D_sul5r")
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blt1j"]
+size = Vector3(10, 0.1, 10)
+
+[node name="Table" type="StaticBody3D" unique_id=508243004 groups=["Table"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=771859318]
+mesh = SubResource("BoxMesh_blt1j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1084215138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_blt1j")
