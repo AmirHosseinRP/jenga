@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c8jt610f5pwx2"]
+
+[ext_resource type="Script" uid="uid://bvfa414dtrtwf" path="res://scenes/spawner/spawner.gd" id="1_eoeca"]
+[ext_resource type="BoxMesh" uid="uid://c65unnsw3vkco" path="res://resources/brick_mesh.tres" id="2_wtxcb"]
+
+[node name="Spawner" type="Node3D" unique_id=564239786]
+script = ExtResource("1_eoeca")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=110364787]
+
+[node name="BrickMesh" type="MeshInstance3D" parent="Pivot" unique_id=383200520]
+mesh = ExtResource("2_wtxcb")
+
+[node name="Timer" type="Timer" parent="." unique_id=1501563860]
+one_shot = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=543715007]
+transform = Transform3D(0.6946584, -0.3596699, 0.6229665, 0, 0.8660254, 0.5, -0.7193398, -0.3473292, 0.6015918, 4, 0.5, 4)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

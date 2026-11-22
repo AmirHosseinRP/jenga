@@ -1,23 +1,10 @@
 [gd_scene format=3 uid="uid://p8dm1tgat24m"]
 
-[ext_resource type="Texture2D" uid="uid://btkrj8scvm248" path="res://assets/textures/plywood_diff_1k.jpg" id="1_5cq3d"]
 [ext_resource type="Script" uid="uid://b82pdc63lm3xy" path="res://scenes/brick/brick.gd" id="1_a0gjw"]
-[ext_resource type="Texture2D" uid="uid://c44y4p7ntbgi7" path="res://assets/textures/plywood_ao_1k.jpg" id="2_a0gjw"]
-[ext_resource type="Texture2D" uid="uid://c812nkqffm7e0" path="res://assets/textures/plywood_nor_gl_1k.jpg" id="3_18nu1"]
+[ext_resource type="BoxMesh" uid="uid://c65unnsw3vkco" path="res://resources/brick_mesh.tres" id="2_k3dtg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2a8rs"]
 bounce = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iri7f"]
-albedo_texture = ExtResource("1_5cq3d")
-normal_enabled = true
-normal_texture = ExtResource("3_18nu1")
-ao_enabled = true
-ao_texture = ExtResource("2_a0gjw")
-
-[sub_resource type="BoxMesh" id="BoxMesh_blt1j"]
-material = SubResource("StandardMaterial3D_iri7f")
-size = Vector3(0.4, 0.4, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_blt1j"]
 size = Vector3(0.4, 0.4, 2)
@@ -29,7 +16,7 @@ max_contacts_reported = 4
 script = ExtResource("1_a0gjw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=737497415]
-mesh = SubResource("BoxMesh_blt1j")
+mesh = ExtResource("2_k3dtg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=826014912]
 shape = SubResource("BoxShape3D_blt1j")
