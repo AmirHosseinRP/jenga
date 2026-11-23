@@ -8,8 +8,8 @@ extends Node3D
 const ROTATION_SPEED: float = 2.0
 const MOVEMENT_SPEED: float = 2.0
 const MOVEMENT_LIMIT: float = 2.0
-const SPAWN_PLACEMENT_LIMIT: float = 1.7
 const LIFT_DURATION: float = 0.3
+const SPAWN_PLACEMENT_LIMIT: float = 1.7
 
 var spawn_delay: float = 4
 var start_y: float = 0.0

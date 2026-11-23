@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://bsjwl4ukmsnjs"]
+
+[ext_resource type="FontFile" uid="uid://ckd8ncrgmtgfr" path="res://assets/fonts/024 LuckiestGuy-Regular[UdemyIran].ttf" id="1_48c2t"]
+[ext_resource type="Script" uid="uid://dxlnr5315t0t7" path="res://scenes/hud/hud.gd" id="1_c45xl"]
+[ext_resource type="LabelSettings" uid="uid://cufqj60phwcpe" path="res://resources/hud_label_settings.tres" id="1_cgeww"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c45xl"]
+font = ExtResource("1_48c2t")
+font_size = 96
+font_color = Color(0.3882353, 0.92156863, 0.4117647, 1)
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c45xl"]
+bg_color = Color(0, 0.38431373, 0.56078434, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bx4p"]
+bg_color = Color(0, 0.24705882, 0.36078432, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7mo4"]
+bg_color = Color(0, 0.26666668, 0.3882353, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgtrf"]
+bg_color = Color(0.52156866, 0.16078432, 0.34509805, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n56i7"]
+bg_color = Color(0.43137255, 0.13333334, 0.28627452, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 13.0
+
+[node name="Hud" type="Control" unique_id=1063759961]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c45xl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=173522610]
+custom_minimum_size = Vector2(0, 86)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.067200005, 0.123946615, 0.28, 0.7411765)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=1444229547]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 38
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer" unique_id=410347134]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 22
+
+[node name="SpawnTime" type="Label" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=874607794]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2.2s"
+label_settings = ExtResource("1_cgeww")
+
+[node name="Level" type="Label" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=2051951002]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "L:10"
+label_settings = ExtResource("1_cgeww")
+
+[node name="BricksLanded" type="Label" parent="ColorRect/MarginContainer" unique_id=1830899570]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0000"
+label_settings = ExtResource("1_cgeww")
+
+[node name="GameOver" type="ColorRect" parent="." unique_id=1609203722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07800005, 0, 0.52, 0.30588236)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver" unique_id=1210749568]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -66.0
+offset_right = 255.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="GameOverLabel" type="Label" parent="GameOver/VBoxContainer" unique_id=996239330]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_c45xl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/VBoxContainer" unique_id=459975016]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="RetryButton" type="Button" parent="GameOver/VBoxContainer/VBoxContainer" unique_id=1079496637]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_48c2t")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_c45xl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0bx4p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v7mo4")
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="GameOver/VBoxContainer/VBoxContainer" unique_id=844311927]
+custom_minimum_size = Vector2(132, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_48c2t")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgtrf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mgtrf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n56i7")
+text = "Quit"
+
+[connection signal="pressed" from="GameOver/VBoxContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

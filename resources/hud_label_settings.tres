@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cufqj60phwcpe"]
+
+[ext_resource type="FontFile" uid="uid://ckd8ncrgmtgfr" path="res://assets/fonts/024 LuckiestGuy-Regular[UdemyIran].ttf" id="1_fg5xm"]
+
+[resource]
+font = ExtResource("1_fg5xm")
+font_size = 48
+font_color = Color(0.92, 0.68877333, 0.3864, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)

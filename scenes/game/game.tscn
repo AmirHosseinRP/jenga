@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cinh54s7h1b50" path="res://scenes/table/table.tscn" id="2_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://dtun6p0njaokl" path="res://scenes/play_area/play_area.tscn" id="3_kelw5"]
 [ext_resource type="PackedScene" uid="uid://c8jt610f5pwx2" path="res://scenes/spawner/spawner.tscn" id="5_lfrn8"]
+[ext_resource type="PackedScene" uid="uid://bsjwl4ukmsnjs" path="res://scenes/hud/hud.tscn" id="6_5i0tg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ifgtf"]
 panorama = ExtResource("1_sul5r")
@@ -61,3 +62,5 @@ omni_attenuation = 0.0
 
 [node name="Spawner" parent="." unique_id=564239786 instance=ExtResource("5_lfrn8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.005133, 0)
+
+[node name="Hud" parent="." unique_id=1063759961 instance=ExtResource("6_5i0tg")]
