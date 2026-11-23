@@ -4,6 +4,7 @@ const BRICK_SCENE: PackedScene = preload("res://scenes/brick/brick.tscn")
 
 
 func _ready() -> void:
+	GameState.game_over = false
 	SignalHub.brick_dropped.connect(_on_brick_dropped)
 
 

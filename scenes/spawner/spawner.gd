@@ -10,12 +10,23 @@ const MOVEMENT_SPEED: float = 2.0
 const MOVEMENT_LIMIT: float = 2.0
 const LIFT_DURATION: float = 0.3
 const SPAWN_PLACEMENT_LIMIT: float = 1.7
+const SPAWN_DELAY_REDUCTION_MULTIPLIER: float = 0.1
 
-var spawn_delay: float = 4
+const LEVELS_PER_TIER: int = 3
+
+var spawn_delay: float = 8.0
 var start_y: float = 0.0
 var highest_y: float = 0.0
 
+var level: int = 0
+
 var lift_tween: Tween
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if !timer.is_stopped() && event.is_action_pressed("drop"):
+		drop_brick()
+		timer.stop()
 
 
 func _ready() -> void:
@@ -26,13 +37,17 @@ func _ready() -> void:
 	SignalHub.brick_landed.connect(_on_brick_landed)
 	SignalHub.game_over.connect(_on_game_over)
 
-	_on_brick_landed(0)
+	call_deferred("late_init")
 
 
 func _process(delta: float) -> void:
 	if brick_mesh.visible:
 		handle_rotation(delta)
 		handle_movement(delta)
+
+
+func late_init() -> void:
+	_on_brick_landed(0)
 
 
 func handle_rotation(delta: float) -> void:
@@ -80,6 +95,11 @@ func drop_brick() -> void:
 
 
 func start_timer() -> void:
+	if GameState.score % LEVELS_PER_TIER == 0:
+		spawn_delay -= SPAWN_DELAY_REDUCTION_MULTIPLIER * spawn_delay
+		level += 1
+		SignalHub.emit_level_up(level, spawn_delay)
+
 	timer.wait_time = spawn_delay
 	timer.start()
 

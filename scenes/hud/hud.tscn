@@ -13,6 +13,10 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c45xl"]
 bg_color = Color(0, 0.38431373, 0.56078434, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -22,6 +26,10 @@ expand_margin_top = 13.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bx4p"]
 bg_color = Color(0, 0.24705882, 0.36078432, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -31,6 +39,10 @@ expand_margin_top = 13.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7mo4"]
 bg_color = Color(0, 0.26666668, 0.3882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -40,6 +52,10 @@ expand_margin_top = 13.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgtrf"]
 bg_color = Color(0.52156866, 0.16078432, 0.34509805, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -49,6 +65,10 @@ expand_margin_top = 13.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n56i7"]
 bg_color = Color(0.43137255, 0.13333334, 0.28627452, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -90,22 +110,22 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 22
 
-[node name="SpawnTime" type="Label" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=874607794]
+[node name="SpawnTimeLabel" type="Label" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=874607794]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "2.2s"
+text = "7.8s"
 label_settings = ExtResource("1_cgeww")
 
-[node name="Level" type="Label" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=2051951002]
+[node name="LevelLabel" type="Label" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=2051951002]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "L:10"
+text = "L: 1"
 label_settings = ExtResource("1_cgeww")
 
-[node name="BricksLanded" type="Label" parent="ColorRect/MarginContainer" unique_id=1830899570]
+[node name="ScoreLabel" type="Label" parent="ColorRect/MarginContainer" unique_id=1830899570]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "0000"
+text = "000"
 label_settings = ExtResource("1_cgeww")
 
 [node name="GameOver" type="ColorRect" parent="." unique_id=1609203722]
@@ -115,7 +135,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.07800005, 0, 0.52, 0.30588236)
+color = Color(0, 0.4425001, 0.45, 0.43529412)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOver" unique_id=1210749568]
 layout_mode = 1
@@ -130,7 +150,7 @@ offset_right = 255.0
 offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 
 [node name="GameOverLabel" type="Label" parent="GameOver/VBoxContainer" unique_id=996239330]
 layout_mode = 2
@@ -146,6 +166,7 @@ custom_minimum_size = Vector2(180, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("1_48c2t")
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_c45xl")
@@ -158,12 +179,18 @@ custom_minimum_size = Vector2(132, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("1_48c2t")
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgtrf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mgtrf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_n56i7")
 text = "Quit"
 
+[node name="Timer" type="Timer" parent="." unique_id=998828469]
+wait_time = 0.1
+autostart = true
+
 [connection signal="pressed" from="GameOver/VBoxContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
